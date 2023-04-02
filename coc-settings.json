@@ -1,4 +1,6 @@
 {
   //"eslint.autoFixOnSave": true,
-  "coc.preferences.formatOnType": true
+  "coc.preferences.formatOnType": true,
+  "suggest.noselect": false,
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snippets"
 }
