@@ -1,10 +1,12 @@
 " Settings set tabstop=4
 set shiftwidth=4
+set tabstop=4
+set expandtab
 set encoding=UTF-8
 set number " line number
 syntax on
 set splitbelow " when split horizontally, the split is below
-let mapleader="\\" " <Space> is <Leader>
+let mapleader=" " " <Space> is <Leader>
 
 call plug#begin('~/.config/nvim/plugged')
 	" # GUI
@@ -55,6 +57,12 @@ call plug#begin('~/.config/nvim/plugged')
 	if has('nvim')
 		inoremap <silent><expr> <C-space> coc#refresh()
 	endif
+	" <CR> accepts selected completion item or notify coc.nvim to format
+	inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+	      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+	inoremap <silent><expr> <Tab> coc#pum#visible() ? coc#pum#confirm()
+	      \: "\<C-g>u\<Tab>\<c-r>=coc#on_enter()\<CR>"
+
 	" Snippets are configured in the snippets folder. CocList snippets shows all available snippets
 
 	" ## Commenting Out
@@ -71,6 +79,10 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
 
 
+	" # ds(, cs(
+	Plug 'tpope/vim-surround'
+	
+	
 	" ## HTML Emmet Tags
 	Plug 'docunext/closetag.vim'
 	let g:closetag_xhtml_filenames='*.jsx,*.tsx'
@@ -114,6 +126,7 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 " ## Editor
 " Exiting
 noremap <C-s> :w<CR>
+inoremap <C-s> <Esc>:w<CR>a
 noremap <C-q> ZZ
 noremap <Leader>q ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
 	" exit all
@@ -152,5 +165,10 @@ nnoremap g<up> :m .-2<CR>==
 	"move a line down
 nnoremap <S-Tab> <<
 inoremap <S-Tab> <C-d>
+" Select All
+nmap <Leader>a gg0vG
+" Insert like emacs
+imap <C-f> <Esc>la
+imap <C-b> <Esc>i
 
 
