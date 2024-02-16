@@ -24,7 +24,7 @@ call plug#begin('~/.config/nvim/plugged')
 	
 	" ## Find files and search in project
 	Plug 'nvim-lua/plenary.nvim'
-	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+	" Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
 
 
 	" ## Status Bar (at bottom)
@@ -34,7 +34,7 @@ call plug#begin('~/.config/nvim/plugged')
 	let g:airline_powerline_fonts=1
 
 	" ## Tab Bar (for buffers)
-	Plug 'romgrk/barbar.nvim'
+	" Plug 'romgrk/barbar.nvim'
 
 
 
