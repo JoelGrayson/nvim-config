@@ -171,4 +171,9 @@ nmap <Leader>a gg0vG
 imap <C-f> <Esc>la
 imap <C-b> <Esc>i
 
+" Platform-Specific
+if has('macunix')
+	" LaTeX
+	map <C-v> <Esc>:!source ~/.zshrc && j_latex "%"<CR><CR>
+endif
 
